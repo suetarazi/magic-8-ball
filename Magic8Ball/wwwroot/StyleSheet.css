@@ -1,0 +1,19 @@
+﻿body {
+    background-color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+   font-size: x-large;
+   font-weight: bolder;
+   color: darkslategray;
+   margin: 20px; 
+}
+
+#magic8img {
+    margin: 50px;
+}
+
+h2 {
+    margin: 50px;
+}
