@@ -17,3 +17,11 @@ h1 {
 h2 {
     margin: 50px;
 }
+
+table{
+    text-align: center;
+}
+
+th{
+    background-color: gray;
+}
