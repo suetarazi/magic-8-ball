@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Magic8Ball.Models;
+using Magic8Ball.Models.Interfaces;
 
 namespace Magic8Ball.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IMagic8Message _magic8;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IMagic8Message magic8)
         {
             _logger = logger;
+            _magic8 = magic8;
         }
 
-        public IActionResult Index()
+        [HttpPost]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var result = await _magic8.GetMagic8Message();
+            return View(result);
         }
 
         public IActionResult Privacy()
