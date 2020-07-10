@@ -8,5 +8,6 @@ namespace Magic8Ball.Models.Interfaces
     interface IMagic8Message
     {
         Task<string> GetMagic8Message();
+
     }
 }
