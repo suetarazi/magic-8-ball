@@ -1,12 +1,35 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+    <head>
+        <link rel"stylesheet" href="stylesheet.css"/>
+    </head>
 
-<div class="text-center">
-    <h1 class="display-4">Magic 8-Ball</h1>
-    <img id="magic8img" src ="https://appinventor.mit.edu/explore/sites/all/files/Teach/media/image_8_ball.jpg" height=200vh/>
-    <h2>OUTPUT OF MOST RECENT CLICK</h2>
+    <div class="text-center">
+        <h1 class="display-4">Magic 8-Ball</h1>
+        <img id="magic8img" src="https://appinventor.mit.edu/explore/sites/all/files/Teach/media/image_8_ball.jpg" height=200vh />
+        <h3>OUTPUT OF MOST RECENT CLICK</h3>
 
+        <form>
+            <p>
+                <input type="text" id="question" value="Enter your yes/no question..." />
+            </p>
+            <p>
+                <input type="button" id="button" value="Shake the Magic 8-Ball" />
+            </p>
+        </form>
 
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <table class="text-center">
+            <thead></thead>
+            <tr>
+                <th>History of Luck</th>
+            </tr>
+
+            <tr>
+                <td>Persistent API data here</td>
+            </tr>
+        
+        </table>
+        
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
