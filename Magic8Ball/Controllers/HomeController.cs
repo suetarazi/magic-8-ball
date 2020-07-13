@@ -21,7 +21,7 @@ namespace Magic8Ball.Controllers
             _magic8 = magic8;
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var result = await _magic8.GetMagic8Message();
