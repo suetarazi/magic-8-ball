@@ -15,7 +15,8 @@ namespace Magic8Ball.Models.Services
         public async Task<string> GetMagic8Message()
         {
             //set destination
-            var baseUrl = @"https://8ball.delegator.com/magic/JSON/?";
+            var baseUrl = @"https://localhost:44323/api";
+            //var baseUrl = @"https://8ball.delegator.com/magic/JSON/?";
             string route = "question";
 
             client.DefaultRequestHeaders.Accept.Clear();
