@@ -26,6 +26,7 @@ namespace Magic8Ball.Controllers
         {
             var result = await _magic8.GetMagic8Message();
             return View(result);
+            //return View();
         }
 
         public IActionResult Privacy()
