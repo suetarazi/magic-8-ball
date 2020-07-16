@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Magic8Ball.Models.Interfaces;
+using Magic8Ball.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace Magic8Ball
 {
@@ -27,6 +30,13 @@ namespace Magic8Ball
 
             //library dependency for mvc
             services.AddMvc();
+
+            services.AddControllers()
+                .AddNewtonsoftJson(Options =>
+                Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            //mappings
+            services.AddTransient<IMagic8Message, Magic8BallMessage>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
