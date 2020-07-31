@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -12,10 +13,24 @@ namespace Magic8Ball.Models.Services
     {
         private static readonly HttpClient client = new HttpClient();
 
+        private readonly Delegator8BallService _8Ball;
+
+        public Magic8BallMessage()
+            : this(new Delegator8BallService())
+        {
+        }
+
+        public Magic8BallMessage(Delegator8BallService service)
+        {
+            _8Ball = service;
+        }
+
         public async Task<string> GetMagic8Message()
         {
+            return _8Ball.GetAnswer("??");
             //set destination
-            var baseUrl = @"https://8ball.delegator.com/magic/JSON/?";
+            //var baseUrl = @"https://localhost:44323/api";
+            var baseUrl = @"https://8ball.delegator.com/magic/json";
             string route = "question";
 
             client.DefaultRequestHeaders.Accept.Clear();
@@ -30,6 +45,33 @@ namespace Magic8Ball.Models.Services
             return result;
 
             //throw new NotImplementedException();
+        }
+    }
+
+    public class Delegator8BallService
+    {
+        public virtual string GetAnswer(string question)
+        {
+            return null;
+        }
+    }
+
+    public class Test8Ball : Delegator8BallService
+    {
+        public override string GetAnswer(string question)
+        {
+            // Replace with custom answser
+            return base.GetAnswer(question);
+        }
+
+    }
+
+    public class MyTests
+    {
+        public void Test1()
+        {
+            var svc = new Magic8BallMessage(new Test8Ball());
+
         }
     }
 }
