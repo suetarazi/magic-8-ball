@@ -13,7 +13,7 @@ namespace Magic8Ball.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IMagic8Message _magic8;
+        private readonly IMagic8Message _magic8;
 
         public HomeController(ILogger<HomeController> logger, IMagic8Message magic8)
         {
@@ -22,7 +22,13 @@ namespace Magic8Ball.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(string message)
         {
             var result = await _magic8.GetMagic8Message();
             return View(result);
