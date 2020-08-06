@@ -30,7 +30,7 @@ namespace Magic8Ball.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string message)
         {
-            var result = await _magic8.GetMagic8Message();
+            Magic8 result = await _magic8.GetMagic8Message();
             return View(result);
             //return View();
         }

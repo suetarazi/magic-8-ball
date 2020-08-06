@@ -11,7 +11,7 @@
         <img id="magic8img" src="https://appinventor.mit.edu/explore/sites/all/files/Teach/media/image_8_ball.jpg" height=200vh />
         <h3>OUTPUT OF MOST RECENT CLICK</h3>
 
-        <form>
+        <form method="post">
             <p>
                 <input type="text" id="question" value="Enter your yes/no question..." />
             </p>
@@ -25,7 +25,10 @@
             <tr>
                 <th>History of Luck</th>
             </tr>
+            @if (Model != null)
+            {
             <td>@Model.Answer</td>
+            }
             <tr>
                 <td>Persistent API data here</td>
             </tr>
