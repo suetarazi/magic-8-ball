@@ -25,9 +25,9 @@ namespace Magic8Ball.Models.Services
             _8Ball = service;
         }
 
-        public async Task<string> GetMagic8Message()
+        public async Task<Magic8> GetMagic8Message()
         {
-            return _8Ball.GetAnswer("??");
+            //return _8Ball.GetAnswer("??");
             //set destination
             //var baseUrl = @"https://localhost:44323/api";
             var baseUrl = @"https://8ball.delegator.com/magic/json";
@@ -39,8 +39,10 @@ namespace Magic8Ball.Models.Services
 
             var streamTask = await client.GetStreamAsync($"{baseUrl}/{route}");
 
+            //readcontentasstring.Async 
+
             //convert to C# from JSON
-            var result = await JsonSerializer.DeserializeAsync<string>(streamTask);
+            Magic8 result = await JsonSerializer.DeserializeAsync<Magic8>(streamTask);
 
             return result;
 
