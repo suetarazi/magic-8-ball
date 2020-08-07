@@ -22,6 +22,10 @@ table{
     text-align: center;
 }
 
+#resultsTable{
+    align-content: center;
+}
+
 th{
     background-color: gray;
 }
