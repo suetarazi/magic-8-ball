@@ -20,20 +20,23 @@
             </p>
         </form>
 
-        <table class="text-center">
+        <table id = "resultsTable" class="text-center">
             <thead></thead>
             <tr>
                 <th>History of Luck</th>
             </tr>
             @if (Model != null)
             {
+            <td>@Model.Question</td>
             <td>@Model.Answer</td>
+            <br />
             }
-            <tr>
+
+            @*<tr>
                 <td>Persistent API data here</td>
-            </tr>
+            </tr>*@
         
         </table>
         
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
     </div>
