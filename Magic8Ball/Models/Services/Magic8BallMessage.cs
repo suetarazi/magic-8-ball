@@ -1,4 +1,5 @@
 ﻿using Magic8Ball.Models.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,14 +38,14 @@ namespace Magic8Ball.Models.Services
             client.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            var streamTask = await client.GetStreamAsync($"{baseUrl}/{route}");
-
+            var response = await client.GetStringAsync($"{baseUrl}/{route}");
+           
             //readcontentasstring.Async 
 
             //convert to C# from JSON
-            Magic8 result = await JsonSerializer.DeserializeAsync<Magic8>(streamTask);
+            Result result = JsonConvert.DeserializeObject<Result>(response);
 
-            return result;
+            return result.Magic;
 
             //throw new NotImplementedException();
         }
