@@ -19,15 +19,19 @@
                 <button type="submit" id="button">Shake the Magic 8 Ball</button> 
             </p>
         </form>
+    </div>
 
+     <div id="results">
         <table id = "resultsTable" class="text-center">
             <thead></thead>
             <tr>
-                <th>History of Luck</th>
+                @*<th>History of Luck</th>*@
+                <th>The Magic 8 Ball says:</th>
+                <br />
             </tr>
             @if (Model != null)
             {
-            <td>@Model.Question</td>
+            @*<td>@Model.Question</td>*@
             <td>@Model.Answer</td>
             <br />
             }
@@ -37,6 +41,6 @@
             </tr>*@
         
         </table>
-        
+    </div>        
         @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
-    </div>
+   
