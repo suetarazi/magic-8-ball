@@ -18,12 +18,14 @@ h2 {
     margin: 50px;
 }
 
-table{
+table, td, tr{
     text-align: center;
 }
 
-#resultsTable{
+#resultsTable, results{
     align-content: center;
+    text-align: center;
+    margin-left: 50vw;
 }
 
 th{
