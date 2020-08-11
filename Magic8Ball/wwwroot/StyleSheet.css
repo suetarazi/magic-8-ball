@@ -22,10 +22,11 @@ table, td, tr{
     text-align: center;
 }
 
-#resultsTable, results{
+#resultsTable, #results{
+    margin: auto;
     align-content: center;
     text-align: center;
-    margin-left: 50vw;
+
 }
 
 th{
